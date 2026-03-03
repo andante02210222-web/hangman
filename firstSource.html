@@ -2,18 +2,30 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <h1>タブ式表示の作成</h1>
+  <title>DOMの練習</title>
   <script>
-    function DWrite(){
-	  document.write("どこに書き出されるのかな");
+    function addNode(){
+	  //追加する子ノードを生成します
+	  var CHILD = document.createElement("p");
+	  //このノードのタグで囲まれている部分のテキストを設定します
+	  CHILD.innerHTML = "これが追加されたpタグ領域です";
+	  
+	  //どこに追加するのか、親ノードを指定します
+	  var PARENT = document.getElementsByTagName("div").item(0);
+	  
+	  //これが子ノードを追加する命令です
+	  PARENT.appendChild(CHILD);
 	}
   </script>
 </head>
 <body>
-  <p>下のボタンを押すとfunctionを呼び出します<br>
-  ページが全て書き出されたあとのdocuments.writeは<br>
-  どこに書き出されるのでしょう？</p>
-  <button onClick="DWrite();">document.writeします</button>
+<h1>ノードを追加します</h1>
+<!--初期状態では何もありません-->
+<div></div>
+<div>
+  <p>ここはHTMLで書き出しているテキストです。ボタンを押すとこの上にテキストが追加されます。</p>
+</div>
+<button onClick="addNode();">見出しの下に文章を追加します</button>
 </body>
 </html>
   
